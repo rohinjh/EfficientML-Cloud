@@ -29,3 +29,28 @@
 \end{tikzpicture}
 \caption{EfficientML-Cloud System Architecture}
 \end{figure}
+
+
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+    node distance=1.2cm,
+    every node/.style={rectangle, draw, rounded corners, align=center, minimum width=5cm, minimum height=1cm}
+]
+
+\node (step1) {Step 1: Feature Compression};
+\node (step2) [below=of step1] {Step 2: Complexity Scoring};
+\node (step3) [below=of step2] {Step 3: Route to Fast or Full Model};
+\node (step4) [below=of step3] {Step 4: Cost-Sensitivity Adjustment};
+\node (step5) [below=of step4] {Step 5: Final Inference Output};
+
+\draw[->] (step1) -- (step2);
+\draw[->] (step2) -- (step3);
+\draw[->] (step3) -- (step4);
+\draw[->] (step4) -- (step5);
+
+\end{tikzpicture}
+\caption{EfficientML-Cloud Workflow}
+\end{figure}
+
