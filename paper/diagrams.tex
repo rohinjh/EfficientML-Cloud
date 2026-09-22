@@ -1,0 +1,31 @@
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+    node distance=1.4cm,
+    every node/.style={rectangle, draw, rounded corners, align=center, minimum width=4cm, minimum height=1cm}
+]
+
+\node (input) {Enterprise Data Input};
+
+\node (feat) [below=of input] {Structured Feature Minimization};
+
+\node (est) [below=of feat] {Complexity Estimator};
+
+\node (fast) [below left=1.2cm and 1.2cm of est] {Fast Model Path};
+\node (full) [below right=1.2cm and 1.2cm of est] {Full Model Path};
+
+\node (ctrl) [below=2cm of est] {Cost-Sensitivity Controller};
+
+\node (out) [below=of ctrl] {Cloud Inference Output};
+
+\draw[->] (input) -- (feat);
+\draw[->] (feat) -- (est);
+\draw[->] (est) -- (fast);
+\draw[->] (est) -- (full);
+\draw[->] (fast) |- (ctrl);
+\draw[->] (full) |- (ctrl);
+\draw[->] (ctrl) -- (out);
+
+\end{tikzpicture}
+\caption{EfficientML-Cloud System Architecture}
+\end{figure}
